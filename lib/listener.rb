@@ -2,8 +2,8 @@ require 'aws-sdk-resources'
 require 'json'
 
 class Listener
-  ADVERBS=%w(happily neutrally angrily)
-  VERBS=%w(spoke said emitted articulated related uttered voiced expressed communicated)
+  ADVERBS=%w(happily neutrally angrily deviously sarcastically)
+  VERBS=%w(spoke said emitted articulated related uttered voiced expressed communicated opined)
 
   def self.run(queue_url)
     poller = Aws::SQS::QueuePoller.new(queue_url)
