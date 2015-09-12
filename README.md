@@ -4,14 +4,12 @@ This program supports two modes: *speaker* and *listener*.
 
 ## Setup
 
-Get the AWS access and secret keys from Philip.
-
 Set AWS environment variables:
 
 ```
 export AWS_REGION=us-west-2
-export AWS_ACCESS_KEY_ID=...
-export AWS_SECRET_ACCESS_KEY=...
+export AWS_ACCESS_KEY_ID=<get from Philip>
+export AWS_SECRET_ACCESS_KEY=<get from Philip>
 ```
 
 Install dependencies: `bundle`
