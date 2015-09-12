@@ -22,7 +22,7 @@ class Speaker
     print PROMPT
     STDIN.each_line do |line|
       msg = JSON.dump({
-                        ts: Time.now.strftime('%FT%T%:z'),
+                        ts: Time.now.strftime('%FT%T%z'),
                         sent_by: person_name,
                         msg: line.strip,
                       })
