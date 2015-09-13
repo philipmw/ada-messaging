@@ -44,6 +44,50 @@ data transfer.
 
 In total, we estimate we'd pay 88¢ per month for our estimated AWS usage.
 
+## Set up your own queue and users
+
+This demo uses an existing queue and users in Philip's AWS account, but here's
+how to set up your own.  I include two sets of instructions: the simpler case
+of just one user that can both write to and read from the queue, and the case of
+two users, one for reading and one for writing.
+
+### One user for reading and writing
+
+1. Log in to the AWS console and go to its SQS section.
+2. Create a new SQS queue.  Note its ARN.
+3. Copy your new queue's ARN into the `QUEUE_ARN` constant of `queue.rb`.
+4. Go to the IAM section of AWS console.
+5. Create a new policy; use the Policy Generator.
+    1. Effect: Allow
+    2. AWS Service: AWS SQS
+    3. Actions: All Actions (*)
+    4. ARN: the ARN of your new queue (from step 2)
+6. Create a new user; write down its access and secret keys, and set them in your environment variables.
+7. Attach the policy from step 5 to the new user.
+
+### A user for writing, a user for reading
+
+1. Log in to the AWS console and go to its SQS section.
+2. Create a new SQS queue.  Note its ARN.
+3. Copy your new queue's ARN into the `QUEUE_ARN` constant of `queue.rb`.
+4. Go to the IAM section of AWS console.
+5. Create a new policy for _reader_ user; use the Policy Generator.
+    1. Effect: Allow
+    2. AWS Service: AWS SQS
+    3. Actions: `ChangeMessageVisibility`, `ChangeMessageVisibilityBatch`, `DeleteMessage`,
+        `DeleteMessageBatch`, `ReceiveMessage`.
+    4. ARN: the ARN of your new queue (from step 2)
+6. Create a new policy for _writer_ user; use the Policy Generator.
+    1. Effect: Allow
+    2. AWS Service: AWS SQS
+    3. Actions: `PurgeQueue`, `SendMessage`, `SendMessageBatch`.
+    4. ARN: the ARN of your new queue (from step 2)
+6. Create a new _reader_ and _writer_ users; write down their access and secret keys.
+7. To each user of your two new users, attach the correct policy.
+
+Now you can run this program in _speaker_ or _listener_ mode after setting the
+environment variables to the correct user's access and secret keys.
+
 ## References
 
 * [AWS SDK for Ruby](https://aws.amazon.com/sdk-for-ruby/)
