@@ -25,3 +25,9 @@ ruby queue.rb speaker
 ```
 ruby queue.rb listener
 ```
+
+## References
+
+* [AWS SDK for Ruby](https://aws.amazon.com/sdk-for-ruby/)
+* [AWS SDK for Ruby - SQS client API](http://docs.aws.amazon.com/sdkforruby/api/Aws/SQS.html
+
