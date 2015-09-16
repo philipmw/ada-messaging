@@ -12,7 +12,7 @@ puts "You're in #{mode} mode."
 case mode
   when 'speaker'
     require_relative 'lib/speaker'
-    Speaker.run(QUEUE_URL)
+    Speaker.new(QUEUE_URL).speak
   when 'listener'
     require_relative 'lib/listener'
     Listener.run(QUEUE_URL)
