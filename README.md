@@ -1,7 +1,5 @@
 <div style="float:right"><a href="https://flattr.com/submit/auto?user_id=philip4g&url=https%3A%2F%2Fgithub.com%2Fphilipmw%2Fada-messaging" target="_blank"><img src="https://button.flattr.com/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a></div>
 
-[![Build Status](https://travis-ci.org/philipmw/ada-messaging.svg)](https://travis-ci.org/philipmw/ada-messaging)
-
 # SQS demo for Ada Developers Academy
 
 This program supports two modes: *speaker* and *listener*.
@@ -21,13 +19,13 @@ Install dependencies: `bundle`
 ## Run as speaker
 
 ```
-ruby queue.rb speaker
+rake speaker
 ```
 
 ## Run as listener
 
 ```
-ruby queue.rb listener
+rake listener
 ```
 
 ## Cost
@@ -91,6 +89,14 @@ two users, one for reading and one for writing.
 
 Now you can run this program in _speaker_ or _listener_ mode after setting the
 environment variables to the correct user's access and secret keys.
+
+## Contributing
+
+[![Build Status](https://travis-ci.org/philipmw/ada-messaging.svg)](https://travis-ci.org/philipmw/ada-messaging)
+
+Please feel free to contribute fixes and enhancements.
+
+Run unit tests with `rake spec`.
 
 ## References
 
